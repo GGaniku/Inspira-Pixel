@@ -1,12 +1,11 @@
 <script setup>
-// NOVO CONTEÚDO: Props
+// Definindo a Props
 defineProps(["imagem"]);
 </script>
 
 <template>
     <section class="card">
         <div>
-        <!-- NOVO CONTEÚDO: Props -->
             <button>❤️</button>
             <img :src="imagem" alt="Praia de São Conrado" />
         </div>
