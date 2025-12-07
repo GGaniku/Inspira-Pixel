@@ -3,7 +3,8 @@ import { Icon } from "@iconify/vue";
 
 // Menu sanduíche para Mobile
 function clickNav() {
-  if (menu.style.display === 'block') {
+  const menu = document.getElementById("menu");
+  if (menu.style.display == 'block') {
     menu.style.display = 'none';
   } else {
     menu.style.display = 'block';
@@ -33,6 +34,10 @@ header {
   justify-content: space-between;
   align-items: center;
   margin: 2rem;
+
+  a {
+    cursor: pointer;
+  }
 
   ul {
     display: flex;
