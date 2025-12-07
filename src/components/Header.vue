@@ -15,7 +15,7 @@ function clickNav() {
 <template>
   <header>
     <img src="../assets/logo.svg" alt="Logo do Inspira Pixel" />
-    <a id="burguer" onclick="clickNav()"><Icon icon="ci:menu-alt-01" width="24" height="24" /></a>
+    <a id="burguer" @click="clickNav()"><Icon icon="ci:menu-alt-01" width="24" height="24" /></a>
     <nav id="menu">
       <ul>
         <li><a href=""><Icon icon="iconoir:search" width="24" height="24" /></a></li>
