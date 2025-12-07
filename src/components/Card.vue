@@ -3,12 +3,16 @@ import { Icon } from "@iconify/vue";
 // Definindo a Props
 defineProps(["imagem"]);
 
+// Função para clicar no coração
+const vermelho = 'rgb(255, 0, 0)';
+const branco = 'rgb(255, 255, 255)';
+
 function clickFav() {
     const coracao = document.getElementById("coracao");
-    if (coracao.style.color == 'white') {
-      coracao.style.color = 'red';
+    if (coracao.style.color == branco) {
+      coracao.style.color = vermelho;
     } else {
-      coracao.style.color = 'white';
+      coracao.style.color = branco;
     }
   }
 </script>
@@ -16,7 +20,7 @@ function clickFav() {
 <template>
     <section class="card">
         <div>
-            <button onclick="clickFav()"><Icon id="coracao" icon="pixel:heart-solid" width="24" height="24" /></button>
+            <button @click="clickFav()"><Icon id="coracao" icon="pixel:heart-solid" width="24" height="24" /></button>
             <img :src="imagem" alt="Praia de São Conrado" />
         </div>
     </section>
@@ -44,7 +48,11 @@ function clickFav() {
         cursor: pointer;
 
         #coracao {
-            color: white;
+            color: rgb(255, 255, 255);
+        }
+
+        #coracao:hover {
+            color: rgb(241, 134, 134);
         }
     }
 }
