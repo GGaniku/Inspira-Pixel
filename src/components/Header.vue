@@ -64,7 +64,4 @@ header {
     }
   }
 }
-
-
-
 </style>

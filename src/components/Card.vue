@@ -1,5 +1,6 @@
 <script setup>
 import { Icon } from "@iconify/vue";
+import { ref } from 'vue';
 // Definindo a Props
 defineProps(["imagem"]);
 
@@ -7,23 +8,20 @@ defineProps(["imagem"]);
 const vermelho = 'rgb(255, 0, 0)';
 const branco = 'rgb(255, 255, 255)';
 
-function clickFav() {
-    const coracao = document.getElementById("coracao");
-    if (coracao.style.color == branco) {
-      coracao.style.color = vermelho;
-    } else {
-      coracao.style.color = branco;
-    }
-  }
+const favoritado = ref(false);
+
+function trocarCor() {
+    favoritado.value = !favoritado.value;
+};
 </script>
 
 <template>
-    <section class="card">
-        <div>
-            <button @click="clickFav()"><Icon id="coracao" icon="pixel:heart-solid" width="24" height="24" /></button>
-            <img :src="imagem" alt="Praia de São Conrado" />
-        </div>
-    </section>
+    <div class="card">
+        <button class="iconePadrao" :class="{ clicou: favoritado }" @click="trocarCor()">
+            <Icon id="coracao" icon="pixel:heart-solid" width="24" height="24" />
+        </button>
+        <img :src="imagem" alt="Imagem da API" />
+    </div>
 </template>
 
 <style scoped lang="scss">
@@ -54,6 +52,22 @@ function clickFav() {
         #coracao:hover {
             color: rgb(241, 134, 134);
         }
+    }
+
+    .iconePadrao {
+        color: #fffbfb;
+        cursor: pointer;
+        :deep(svg) {
+            color: #fffbfb;
+            transition: color 0.3s ease;
+            .iconePadrao:hover & {
+                color: #ff5270;
+            }
+        }
+    }
+
+    .clicou :deep(svg) {
+        color: #ff5270;
     }
 }
 </style>
